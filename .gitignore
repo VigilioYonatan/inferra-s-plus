@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build artifacts
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Logs and runtime databases
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.system_generated/
+test-results/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore root scratch scripts but keep main project files
+inspect-*.mjs
+generate-*.mjs
+verify-*.mjs
+test-*.mjs
+super-seed-database.mjs

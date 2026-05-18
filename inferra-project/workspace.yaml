@@ -1,0 +1,8 @@
+name: inferra
+profile: compose-vps
+repositories:
+  - apps/inferra-impl
+  - apps/inferra-web
+  - inferra-deploy
+  - platform-ops
+  - prod-local
