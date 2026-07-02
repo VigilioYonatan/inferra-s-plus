@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#09090b" />
+    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/brand/logo-icon-dark.png" />
+    <link rel="apple-touch-icon" href="/brand/logo-icon-solid.png" />
+    <title>INFERЯA S+ | AI Infrastructure Platform</title>
+    <meta name="description" content="Consola empresarial de inferencia y gobernanza LLM self-hosted" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('inferra_theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = (saved === 'light' || saved === 'dark') ? saved : (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

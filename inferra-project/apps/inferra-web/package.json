@@ -1,0 +1,49 @@
+{
+  "name": "@inferra/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run",
+    "test:pages": "node ../../test-all-pages.js",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "contracts:generate": "openapi-typescript http://127.0.0.1:3000/internal/openapi.json -o src/services/contracts/api.generated.ts"
+  },
+  "dependencies": {
+    "@preact/signals": "^2.4.0",
+    "@tanstack/react-query": "^5.90.0",
+    "preact": "^11.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@playwright/test": "^1.56.0",
+    "@preact/preset-vite": "^2.10.2",
+    "@tailwindcss/vite": "4.3.5",
+    "@testing-library/jest-dom": "^6.9.0",
+    "@testing-library/preact": "^3.2.4",
+    "@types/node": "^24.0.0",
+    "@vitest/coverage-v8": "^3.2.0",
+    "jsdom": "^27.0.0",
+    "openapi-typescript": "^7.10.0",
+    "tailwindcss": "4.3.5",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.5",
+    "vitest": "^3.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "packageManager": "pnpm@10.19.0"
+}
