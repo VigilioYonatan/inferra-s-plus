@@ -1,0 +1,22 @@
+groups:
+  - name: inferra
+    rules:
+      - alert: HighInferenceErrorRate
+        expr: (sum(rate(inferra_inference_requests_total{status!~"ok|cancelled"}[5m])) / clamp_min(sum(rate(inferra_inference_requests_total[5m])),0.001)) > 0.1
+        for: 5m
+        labels: {severity: critical}
+        annotations:
+          summary: 'More than 10% inference requests failed in 5m'
+          runbook_url: 'docs/runbooks/inference-errors.md'
+      - alert: HighInferenceLatency
+        expr: histogram_quantile(0.95,sum by (le)(rate(inferra_inference_duration_seconds_bucket[5m]))) > 30
+        for: 10m
+        labels: {severity: warning}
+        annotations:
+          summary: 'Inference p95 exceeds 30s'
+      - alert: InferenceMetricsMissing
+        expr: absent(up{job="inferra-api"} == 1)
+        for: 2m
+        labels: {severity: critical}
+        annotations:
+          summary: 'API metrics endpoint unavailable'

@@ -1,0 +1,231 @@
+name: inferra
+x-api: &api_base
+  image: ${API_IMAGE:-inferra/api:dev}
+  build:
+    context: ../../apps/inferra-impl
+    dockerfile: Containerfile
+  env_file:
+    - ../.env
+  networks: [backend, observability, egress]
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ['no-new-privileges:true']
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=64m']
+  init: true
+  user: 'node'
+  depends_on:
+    postgres: {condition: service_healthy}
+    valkey: {condition: service_healthy}
+  logging:
+    driver: json-file
+    options: {max-size: '10m', max-file: '3'}
+services:
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    ports: ['80:80', '443:443']
+    environment: {APP_DOMAIN: '${APP_DOMAIN:?APP_DOMAIN is required}'}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [edge, backend]
+    depends_on: [web, api]
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: ['no-new-privileges:true']
+  web:
+    image: ${WEB_IMAGE:-inferra/web:dev}
+    build:
+      context: ../../apps/inferra-web
+      dockerfile: Containerfile.runtime
+    restart: unless-stopped
+    expose: ['8080']
+    networks: [edge]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    tmpfs: ['/tmp:rw,noexec,nosuid,size=32m']
+  api:
+    <<: *api_base
+    restart: unless-stopped
+    expose: ['3000']
+    command: ['node','dist/main.js']
+    healthcheck:
+      test: ['CMD','node','-e','fetch("http://127.0.0.1:3000/health/ready").then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))']
+      interval: 20s
+      timeout: 7s
+      start_period: 45s
+      retries: 5
+  worker:
+    <<: *api_base
+    restart: unless-stopped
+    command: ['node','dist/worker.main.js']
+  migrate:
+    <<: *api_base
+    profiles: ['tools']
+    restart: 'no'
+    command: ['node','dist/database/migrate.js']
+  platform-setup:
+    <<: *api_base
+    user: '0:0' # One-time read-only file owner access; never used for API/worker
+    profiles: ['tools']
+    restart: 'no'
+    volumes:
+      - ../.secrets:/run/bootstrap:ro
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL required}
+      AUTH_PEPPER: ${AUTH_PEPPER:?AUTH_PEPPER required}
+      APP_ORIGIN: ${APP_ORIGIN:?APP_ORIGIN required}
+      API_ORIGIN: ${API_ORIGIN:?API_ORIGIN required}
+      BOOTSTRAP_EMAIL_FILE: /run/bootstrap/admin-email
+      BOOTSTRAP_PASSWORD_FILE: /run/bootstrap/admin-password
+    command: ['node','dist/platform-setup.main.js']
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: inferra
+      POSTGRES_USER: '${POSTGRES_USER:?POSTGRES_USER required}'
+      POSTGRES_PASSWORD: '${POSTGRES_PASSWORD:?POSTGRES_PASSWORD required}'
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    networks: [backend]
+    healthcheck:
+      test: ['CMD-SHELL','pg_isready -U "$${POSTGRES_USER}" -d inferra']
+      interval: 10s
+      timeout: 5s
+      retries: 8
+    cap_drop: [ALL]
+    cap_add: [CHOWN, SETUID, SETGID, DAC_OVERRIDE]
+    security_opt: ['no-new-privileges:true']
+  valkey:
+    image: valkey/valkey:8.1-alpine
+    restart: unless-stopped
+    command: ['valkey-server','--save','60','1000','--appendonly','yes','--protected-mode','yes']
+    volumes: [valkey_data:/data]
+    networks: [backend]
+    healthcheck:
+      test: ['CMD','valkey-cli','ping']
+      interval: 10s
+      timeout: 5s
+      retries: 8
+    cap_drop: [ALL]
+    cap_add: [CHOWN, SETUID, SETGID]
+    security_opt: ['no-new-privileges:true']
+  vllm:
+    image: vllm/vllm-openai:v0.12.0
+    profiles: ['gpu']
+    restart: unless-stopped
+    environment:
+      HF_TOKEN: ${HF_TOKEN:-}
+      VLLM_API_KEY: ${VLLM_API_KEY:?VLLM_API_KEY required}
+    command: ['--model','${VLLM_MODEL:-Qwen/Qwen2.5-0.5B-Instruct}','--max-model-len','${VLLM_MAX_MODEL_LEN:-4096}','--host','0.0.0.0']
+    volumes: [model_cache:/root/.cache/huggingface]
+    networks: [backend, egress]
+    gpus: all
+    shm_size: '2gb'
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    # GPU runtime requires NVIDIA Container Toolkit on host, never internet-exposed.
+  dcgm-exporter:
+    image: nvcr.io/nvidia/k8s/dcgm-exporter:4.4.1-4.5.2-ubuntu22.04
+    profiles: ['gpu-observability']
+    gpus: all
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    networks: [backend, observability]
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.137.0
+    profiles: ['observability']
+    volumes:
+      - ../observability/otel-collector.yaml:/etc/otelcol-contrib/config.yaml:ro
+    command: ['--config=/etc/otelcol-contrib/config.yaml']
+    networks: [observability]
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+  alloy:
+    image: grafana/alloy:v1.11.3
+    profiles: ['observability']
+    command: ['run','/etc/alloy/config.alloy']
+    volumes:
+      - ../observability/alloy/config.alloy:/etc/alloy/config.alloy:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    networks: [observability]
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    read_only: true
+    tmpfs: ['/var/lib/alloy:rw,size=64m']
+  prometheus:
+    image: prom/prometheus:v3.6.0
+    profiles: ['observability']
+    volumes:
+      - ../observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ../observability/alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prometheus_data:/prometheus
+    networks: [observability]
+    command: ['--config.file=/etc/prometheus/prometheus.yml','--storage.tsdb.retention.time=15d']
+    cap_drop: [ALL]
+  grafana:
+    image: grafana/grafana:12.2.0
+    profiles: ['observability']
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: '${GRAFANA_ADMIN_PASSWORD:?GRAFANA_ADMIN_PASSWORD required}'
+      GF_SERVER_ROOT_URL: 'http://grafana:3000'
+      GF_AUTH_ANONYMOUS_ENABLED: 'false'
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ../observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ../observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks: [observability]
+    cap_drop: [ALL]
+  loki:
+    image: grafana/loki:3.6.0
+    profiles: ['observability']
+    volumes:
+      - ../observability/loki.yaml:/etc/loki/config.yaml:ro
+      - loki_data:/loki
+    command: ['-config.file=/etc/loki/config.yaml']
+    networks: [observability]
+  tempo:
+    image: grafana/tempo:2.9.0
+    profiles: ['observability']
+    volumes:
+      - ../observability/tempo.yaml:/etc/tempo.yaml:ro
+      - tempo_data:/var/tempo
+    command: ['-config.file=/etc/tempo.yaml']
+    networks: [observability]
+  alertmanager:
+    image: prom/alertmanager:v0.29.0
+    profiles: ['observability']
+    volumes:
+      - ../observability/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+    networks: [observability]
+  rustfs:
+    image: rustfs/rustfs:${RUSTFS_VERSION:-latest}
+    profiles: ['storage']
+    volumes: [rustfs_data:/data]
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY:?RUSTFS_ACCESS_KEY required}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY:?RUSTFS_SECRET_KEY required}
+    networks: [backend]
+  mailpit:
+    image: axllent/mailpit:v1.27.4
+    profiles: ['tools']
+    networks: [backend]
+    # Mailpit UI intentionally has no published ports; access only from trusted lab.
+networks:
+  edge: {}
+  backend: {internal: true}
+  observability: {internal: true}
+  egress: {}
+volumes:
+  caddy_data: {}
+  caddy_config: {}
+  postgres_data: {}
+  valkey_data: {}
+  model_cache: {}
+  prometheus_data: {}
+  grafana_data: {}
+  loki_data: {}
+  tempo_data: {}
+  rustfs_data: {}

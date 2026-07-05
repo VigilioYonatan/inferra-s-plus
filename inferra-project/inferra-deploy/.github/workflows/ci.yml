@@ -1,0 +1,16 @@
+name: Docker Compose deployment policy
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  validate:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          test -f compose/compose.yaml
+          test -f .env.example
+          docker compose --env-file .env.example -f compose/compose.yaml config --quiet
+      - name: Detect credentials in repository
+        run: |
+          command -v gitleaks >/dev/null || exit 1
+          gitleaks detect --no-git --redact

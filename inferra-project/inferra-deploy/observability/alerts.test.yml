@@ -1,0 +1,18 @@
+rule_files:
+  - alerts.yml
+evaluation_interval: 1m
+tests:
+  - interval: 1m
+    input_series:
+      - series: 'inferra_inference_requests_total{status="ok"}'
+        values: '0+10x20'
+      - series: 'inferra_inference_requests_total{status="error"}'
+        values: '0+5x20'
+    alert_rule_test:
+      - eval_time: 12m
+        alertname: HighInferenceErrorRate
+        exp_alerts:
+          - exp_labels: {severity: critical}
+            exp_annotations:
+              summary: 'More than 10% inference requests failed in 5m'
+              runbook_url: 'docs/runbooks/inference-errors.md'
