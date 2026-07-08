@@ -1,0 +1,695 @@
+{
+  "timestamp": "2026-11-09T19:56:17.446Z",
+  "total": 86,
+  "captured": 86,
+  "manifest": [
+    {
+      "index": 1,
+      "pattern": "/login",
+      "url": "http://localhost:5173/login",
+      "filename": "01-01-login-iniciar-sesion.png",
+      "durationMs": 398,
+      "status": "OK"
+    },
+    {
+      "index": 2,
+      "pattern": "/register",
+      "url": "http://localhost:5173/register",
+      "filename": "02-02-register-crear-cuenta.png",
+      "durationMs": 420,
+      "status": "OK"
+    },
+    {
+      "index": 3,
+      "pattern": "/register/verify",
+      "url": "http://localhost:5173/register/verify",
+      "filename": "03-03-register-verify-correo.png",
+      "durationMs": 447,
+      "status": "OK"
+    },
+    {
+      "index": 4,
+      "pattern": "/password/forgot",
+      "url": "http://localhost:5173/password/forgot",
+      "filename": "04-04-password-forgot-recuperar.png",
+      "durationMs": 417,
+      "status": "OK"
+    },
+    {
+      "index": 5,
+      "pattern": "/password/reset",
+      "url": "http://localhost:5173/password/reset",
+      "filename": "05-05-password-reset-nueva-clave.png",
+      "durationMs": 408,
+      "status": "OK"
+    },
+    {
+      "index": 6,
+      "pattern": "/login/otp",
+      "url": "http://localhost:5173/login/otp",
+      "filename": "06-06-login-otp-codigo.png",
+      "durationMs": 420,
+      "status": "OK"
+    },
+    {
+      "index": 7,
+      "pattern": "/auth/complete",
+      "url": "http://localhost:5173/auth/complete",
+      "filename": "07-07-auth-complete-oauth-sso.png",
+      "durationMs": 437,
+      "status": "OK"
+    },
+    {
+      "index": 8,
+      "pattern": "/auth/error",
+      "url": "http://localhost:5173/auth/error",
+      "filename": "08-08-auth-error-fallo.png",
+      "durationMs": 413,
+      "status": "OK"
+    },
+    {
+      "index": 9,
+      "pattern": "/mfa/challenge",
+      "url": "http://localhost:5173/mfa/challenge",
+      "filename": "09-09-mfa-challenge-totp.png",
+      "durationMs": 413,
+      "status": "OK"
+    },
+    {
+      "index": 10,
+      "pattern": "/invite/accept",
+      "url": "http://localhost:5173/invite/accept",
+      "filename": "10-10-invite-accept-invitacion.png",
+      "durationMs": 399,
+      "status": "OK"
+    },
+    {
+      "index": 11,
+      "pattern": "/403",
+      "url": "http://localhost:5173/403",
+      "filename": "11-11-forbidden-403.png",
+      "durationMs": 359,
+      "status": "OK"
+    },
+    {
+      "index": 12,
+      "pattern": "/onboarding",
+      "url": "http://localhost:5173/onboarding",
+      "filename": "12-12-onboarding-bienvenida.png",
+      "durationMs": 420,
+      "status": "OK"
+    },
+    {
+      "index": 13,
+      "pattern": "/onboarding/organization",
+      "url": "http://localhost:5173/onboarding/organization",
+      "filename": "13-13-onboarding-crear-org.png",
+      "durationMs": 399,
+      "status": "OK"
+    },
+    {
+      "index": 14,
+      "pattern": "/onboarding/first-model",
+      "url": "http://localhost:5173/onboarding/first-model",
+      "filename": "14-14-onboarding-primer-modelo.png",
+      "durationMs": 403,
+      "status": "OK"
+    },
+    {
+      "index": 15,
+      "pattern": "/organizations/new",
+      "url": "http://localhost:5173/organizations/new",
+      "filename": "15-15-organizations-new.png",
+      "durationMs": 413,
+      "status": "OK"
+    },
+    {
+      "index": 16,
+      "pattern": "/account/profile",
+      "url": "http://localhost:5173/account/profile",
+      "filename": "16-16-account-profile.png",
+      "durationMs": 399,
+      "status": "OK"
+    },
+    {
+      "index": 17,
+      "pattern": "/account/security",
+      "url": "http://localhost:5173/account/security",
+      "filename": "17-17-account-security-mfa.png",
+      "durationMs": 397,
+      "status": "OK"
+    },
+    {
+      "index": 18,
+      "pattern": "/account/sessions",
+      "url": "http://localhost:5173/account/sessions",
+      "filename": "18-18-account-sessions-activas.png",
+      "durationMs": 421,
+      "status": "OK"
+    },
+    {
+      "index": 19,
+      "pattern": "/account/connections",
+      "url": "http://localhost:5173/account/connections",
+      "filename": "19-19-account-connections-sso.png",
+      "durationMs": 429,
+      "status": "OK"
+    },
+    {
+      "index": 20,
+      "pattern": "/account/verify-email",
+      "url": "http://localhost:5173/account/verify-email",
+      "filename": "20-20-account-verify-email.png",
+      "durationMs": 422,
+      "status": "OK"
+    },
+    {
+      "index": 21,
+      "pattern": "/app/:org_slug/dashboard",
+      "url": "http://localhost:5173/app/default/dashboard",
+      "filename": "21-21-tenant-dashboard.png",
+      "durationMs": 450,
+      "status": "OK"
+    },
+    {
+      "index": 22,
+      "pattern": "/app/:org_slug/usage",
+      "url": "http://localhost:5173/app/default/usage",
+      "filename": "22-22-usage-resumen.png",
+      "durationMs": 457,
+      "status": "OK"
+    },
+    {
+      "index": 23,
+      "pattern": "/app/:org_slug/usage/models",
+      "url": "http://localhost:5173/app/default/usage/models",
+      "filename": "23-23-usage-consumo-por-modelo.png",
+      "durationMs": 450,
+      "status": "OK"
+    },
+    {
+      "index": 24,
+      "pattern": "/app/:org_slug/usage/exports",
+      "url": "http://localhost:5173/app/default/usage/exports",
+      "filename": "24-24-usage-exportacion-datos.png",
+      "durationMs": 452,
+      "status": "OK"
+    },
+    {
+      "index": 25,
+      "pattern": "/app/:org_slug/requests",
+      "url": "http://localhost:5173/app/default/requests",
+      "filename": "25-25-requests-trazas-inferencia.png",
+      "durationMs": 435,
+      "status": "OK"
+    },
+    {
+      "index": 26,
+      "pattern": "/app/:org_slug/requests/:request_id",
+      "url": "http://localhost:5173/app/default/requests/00000000-0000-0000-0000-000000000018",
+      "filename": "26-26-requests-detalle-traza.png",
+      "durationMs": 438,
+      "status": "OK"
+    },
+    {
+      "index": 27,
+      "pattern": "/app/:org_slug/quotas",
+      "url": "http://localhost:5173/app/default/quotas",
+      "filename": "27-27-quotas-limites-tokens.png",
+      "durationMs": 416,
+      "status": "OK"
+    },
+    {
+      "index": 28,
+      "pattern": "/app/:org_slug/costs",
+      "url": "http://localhost:5173/app/default/costs",
+      "filename": "28-28-costs-estimacion-gpu.png",
+      "durationMs": 416,
+      "status": "OK"
+    },
+    {
+      "index": 29,
+      "pattern": "/app/:org_slug/observability/latency",
+      "url": "http://localhost:5173/app/default/observability/latency",
+      "filename": "29-29-observability-latencia-ttft.png",
+      "durationMs": 436,
+      "status": "OK"
+    },
+    {
+      "index": 30,
+      "pattern": "/app/:org_slug/observability/errors",
+      "url": "http://localhost:5173/app/default/observability/errors",
+      "filename": "30-30-observability-errores.png",
+      "durationMs": 432,
+      "status": "OK"
+    },
+    {
+      "index": 31,
+      "pattern": "/app/:org_slug/observability/admission",
+      "url": "http://localhost:5173/app/default/observability/admission",
+      "filename": "31-31-observability-admission-control.png",
+      "durationMs": 411,
+      "status": "OK"
+    },
+    {
+      "index": 32,
+      "pattern": "/app/:org_slug/playground",
+      "url": "http://localhost:5173/app/default/playground",
+      "filename": "32-32-playground-chat.png",
+      "durationMs": 424,
+      "status": "OK"
+    },
+    {
+      "index": 33,
+      "pattern": "/app/:org_slug/playground/sessions/:session_id",
+      "url": "http://localhost:5173/app/default/playground/sessions/00000000-0000-0000-0000-000000000013",
+      "filename": "33-33-playground-session-detail.png",
+      "durationMs": 410,
+      "status": "OK"
+    },
+    {
+      "index": 34,
+      "pattern": "/app/:org_slug/playground/compare",
+      "url": "http://localhost:5173/app/default/playground/compare",
+      "filename": "34-34-playground-compare-modelos.png",
+      "durationMs": 451,
+      "status": "OK"
+    },
+    {
+      "index": 35,
+      "pattern": "/app/:org_slug/playground/embeddings",
+      "url": "http://localhost:5173/app/default/playground/embeddings",
+      "filename": "35-35-playground-embeddings.png",
+      "durationMs": 414,
+      "status": "OK"
+    },
+    {
+      "index": 36,
+      "pattern": "/app/:org_slug/developers",
+      "url": "http://localhost:5173/app/default/developers",
+      "filename": "36-36-developer-portal-sdk.png",
+      "durationMs": 428,
+      "status": "OK"
+    },
+    {
+      "index": 37,
+      "pattern": "/app/:org_slug/models",
+      "url": "http://localhost:5173/app/default/models",
+      "filename": "37-37-models-catalogo.png",
+      "durationMs": 445,
+      "status": "OK"
+    },
+    {
+      "index": 38,
+      "pattern": "/app/:org_slug/models/new",
+      "url": "http://localhost:5173/app/default/models/new",
+      "filename": "38-38-models-registrar-nuevo.png",
+      "durationMs": 422,
+      "status": "OK"
+    },
+    {
+      "index": 39,
+      "pattern": "/app/:org_slug/models/:model_id",
+      "url": "http://localhost:5173/app/default/models/00000000-0000-0000-0000-000000000004",
+      "filename": "39-39-models-detalle.png",
+      "durationMs": 416,
+      "status": "OK"
+    },
+    {
+      "index": 40,
+      "pattern": "/app/:org_slug/models/:model_id/settings",
+      "url": "http://localhost:5173/app/default/models/00000000-0000-0000-0000-000000000004/settings",
+      "filename": "40-40-models-ajustes.png",
+      "durationMs": 410,
+      "status": "OK"
+    },
+    {
+      "index": 41,
+      "pattern": "/app/:org_slug/models/:model_id/versions",
+      "url": "http://localhost:5173/app/default/models/00000000-0000-0000-0000-000000000004/versions",
+      "filename": "41-41-models-versiones-tags.png",
+      "durationMs": 404,
+      "status": "OK"
+    },
+    {
+      "index": 42,
+      "pattern": "/app/:org_slug/model-imports",
+      "url": "http://localhost:5173/app/default/model-imports",
+      "filename": "42-42-model-imports-historial.png",
+      "durationMs": 438,
+      "status": "OK"
+    },
+    {
+      "index": 43,
+      "pattern": "/app/:org_slug/model-imports/new",
+      "url": "http://localhost:5173/app/default/model-imports/new",
+      "filename": "43-43-model-imports-nuevo-hf.png",
+      "durationMs": 399,
+      "status": "OK"
+    },
+    {
+      "index": 44,
+      "pattern": "/app/:org_slug/model-imports/:import_id",
+      "url": "http://localhost:5173/app/default/model-imports/00000000-0000-0000-0000-000000000017",
+      "filename": "44-44-model-imports-progreso.png",
+      "durationMs": 403,
+      "status": "OK"
+    },
+    {
+      "index": 45,
+      "pattern": "/app/:org_slug/deployments",
+      "url": "http://localhost:5173/app/default/deployments",
+      "filename": "45-45-deployments-activos.png",
+      "durationMs": 445,
+      "status": "OK"
+    },
+    {
+      "index": 46,
+      "pattern": "/app/:org_slug/deployments/new",
+      "url": "http://localhost:5173/app/default/deployments/new",
+      "filename": "46-46-deployments-crear-vllm.png",
+      "durationMs": 415,
+      "status": "OK"
+    },
+    {
+      "index": 47,
+      "pattern": "/app/:org_slug/deployments/:deployment_id",
+      "url": "http://localhost:5173/app/default/deployments/00000000-0000-0000-0000-000000000005",
+      "filename": "47-47-deployments-detalle.png",
+      "durationMs": 435,
+      "status": "OK"
+    },
+    {
+      "index": 48,
+      "pattern": "/app/:org_slug/deployments/:deployment_id/logs",
+      "url": "http://localhost:5173/app/default/deployments/00000000-0000-0000-0000-000000000005/logs",
+      "filename": "48-48-deployments-logs-streaming.png",
+      "durationMs": 399,
+      "status": "OK"
+    },
+    {
+      "index": 49,
+      "pattern": "/app/:org_slug/gpu-nodes",
+      "url": "http://localhost:5173/app/default/gpu-nodes",
+      "filename": "49-49-gpu-nodes-telemetria.png",
+      "durationMs": 397,
+      "status": "OK"
+    },
+    {
+      "index": 50,
+      "pattern": "/app/:org_slug/api-keys",
+      "url": "http://localhost:5173/app/default/api-keys",
+      "filename": "50-50-api-keys-gestion.png",
+      "durationMs": 451,
+      "status": "OK"
+    },
+    {
+      "index": 51,
+      "pattern": "/app/:org_slug/api-keys/new",
+      "url": "http://localhost:5173/app/default/api-keys/new",
+      "filename": "51-51-api-keys-crear-modal.png",
+      "durationMs": 410,
+      "status": "OK"
+    },
+    {
+      "index": 52,
+      "pattern": "/app/:org_slug/api-keys/:key_id",
+      "url": "http://localhost:5173/app/default/api-keys/00000000-0000-0000-0000-000000000003",
+      "filename": "52-52-api-keys-detalle-rotacion.png",
+      "durationMs": 428,
+      "status": "OK"
+    },
+    {
+      "index": 53,
+      "pattern": "/app/:org_slug/routing",
+      "url": "http://localhost:5173/app/default/routing",
+      "filename": "53-53-routing-politicas-balanceo.png",
+      "durationMs": 445,
+      "status": "OK"
+    },
+    {
+      "index": 54,
+      "pattern": "/app/:org_slug/routing/new",
+      "url": "http://localhost:5173/app/default/routing/new",
+      "filename": "54-54-routing-nueva-politica.png",
+      "durationMs": 425,
+      "status": "OK"
+    },
+    {
+      "index": 55,
+      "pattern": "/app/:org_slug/routing/:policy_id",
+      "url": "http://localhost:5173/app/default/routing/00000000-0000-0000-0000-000000000011",
+      "filename": "55-55-routing-detalle-politica.png",
+      "durationMs": 409,
+      "status": "OK"
+    },
+    {
+      "index": 56,
+      "pattern": "/app/:org_slug/routing/:policy_id/edit",
+      "url": "http://localhost:5173/app/default/routing/00000000-0000-0000-0000-000000000011/edit",
+      "filename": "56-56-routing-editar-politica.png",
+      "durationMs": 400,
+      "status": "OK"
+    },
+    {
+      "index": 57,
+      "pattern": "/app/:org_slug/benchmarks",
+      "url": "http://localhost:5173/app/default/benchmarks",
+      "filename": "57-57-benchmarks-historial.png",
+      "durationMs": 430,
+      "status": "OK"
+    },
+    {
+      "index": 58,
+      "pattern": "/app/:org_slug/benchmarks/new",
+      "url": "http://localhost:5173/app/default/benchmarks/new",
+      "filename": "58-58-benchmarks-lanzar-eval.png",
+      "durationMs": 383,
+      "status": "OK"
+    },
+    {
+      "index": 59,
+      "pattern": "/app/:org_slug/benchmarks/:benchmark_id",
+      "url": "http://localhost:5173/app/default/benchmarks/00000000-0000-0000-0000-000000000009",
+      "filename": "59-59-benchmarks-resultados-ttft.png",
+      "durationMs": 421,
+      "status": "OK"
+    },
+    {
+      "index": 60,
+      "pattern": "/app/:org_slug/experiments",
+      "url": "http://localhost:5173/app/default/experiments",
+      "filename": "60-60-experiments-activos.png",
+      "durationMs": 503,
+      "status": "OK"
+    },
+    {
+      "index": 61,
+      "pattern": "/app/:org_slug/experiments/new",
+      "url": "http://localhost:5173/app/default/experiments/new",
+      "filename": "61-61-experiments-nuevo-ab.png",
+      "durationMs": 422,
+      "status": "OK"
+    },
+    {
+      "index": 62,
+      "pattern": "/app/:org_slug/experiments/:experiment_id",
+      "url": "http://localhost:5173/app/default/experiments/00000000-0000-0000-0000-000000000008",
+      "filename": "62-62-experiments-comparativa-ab.png",
+      "durationMs": 399,
+      "status": "OK"
+    },
+    {
+      "index": 63,
+      "pattern": "/app/:org_slug/datasets",
+      "url": "http://localhost:5173/app/default/datasets",
+      "filename": "63-63-datasets-evaluacion.png",
+      "durationMs": 446,
+      "status": "OK"
+    },
+    {
+      "index": 64,
+      "pattern": "/app/:org_slug/datasets/new",
+      "url": "http://localhost:5173/app/default/datasets/new",
+      "filename": "64-64-datasets-subir-nuevo.png",
+      "durationMs": 415,
+      "status": "OK"
+    },
+    {
+      "index": 65,
+      "pattern": "/app/:org_slug/datasets/:dataset_id",
+      "url": "http://localhost:5173/app/default/datasets/00000000-0000-0000-0000-000000000007",
+      "filename": "65-65-datasets-detalle.png",
+      "durationMs": 420,
+      "status": "OK"
+    },
+    {
+      "index": 66,
+      "pattern": "/app/:org_slug/datasets/:dataset_id/edit",
+      "url": "http://localhost:5173/app/default/datasets/00000000-0000-0000-0000-000000000007/edit",
+      "filename": "66-66-datasets-editar.png",
+      "durationMs": 412,
+      "status": "OK"
+    },
+    {
+      "index": 67,
+      "pattern": "/app/:org_slug/artifacts",
+      "url": "http://localhost:5173/app/default/artifacts",
+      "filename": "67-67-artifacts-almacenamiento-s3.png",
+      "durationMs": 432,
+      "status": "OK"
+    },
+    {
+      "index": 68,
+      "pattern": "/app/:org_slug/artifacts/:artifact_id",
+      "url": "http://localhost:5173/app/default/artifacts/00000000-0000-0000-0000-000000000006",
+      "filename": "68-68-artifacts-detalle-checksum.png",
+      "durationMs": 389,
+      "status": "OK"
+    },
+    {
+      "index": 69,
+      "pattern": "/app/:org_slug/members",
+      "url": "http://localhost:5173/app/default/members",
+      "filename": "69-69-members-gestion-usuarios.png",
+      "durationMs": 399,
+      "status": "OK"
+    },
+    {
+      "index": 70,
+      "pattern": "/app/:org_slug/members/roles",
+      "url": "http://localhost:5173/app/default/members/roles",
+      "filename": "70-70-members-matriz-roles.png",
+      "durationMs": 433,
+      "status": "OK"
+    },
+    {
+      "index": 71,
+      "pattern": "/app/:org_slug/invitations",
+      "url": "http://localhost:5173/app/default/invitations",
+      "filename": "71-71-invitations-pendientes.png",
+      "durationMs": 466,
+      "status": "OK"
+    },
+    {
+      "index": 72,
+      "pattern": "/app/:org_slug/settings/general",
+      "url": "http://localhost:5173/app/default/settings/general",
+      "filename": "72-72-settings-general-org.png",
+      "durationMs": 409,
+      "status": "OK"
+    },
+    {
+      "index": 73,
+      "pattern": "/app/:org_slug/settings/webhooks",
+      "url": "http://localhost:5173/app/default/settings/webhooks",
+      "filename": "73-73-settings-webhooks-destinos.png",
+      "durationMs": 459,
+      "status": "OK"
+    },
+    {
+      "index": 74,
+      "pattern": "/app/:org_slug/settings/webhooks/:webhook_id",
+      "url": "http://localhost:5173/app/default/settings/webhooks/00000000-0000-0000-0000-000000000015",
+      "filename": "74-74-settings-webhooks-detalle-outbox.png",
+      "durationMs": 431,
+      "status": "OK"
+    },
+    {
+      "index": 75,
+      "pattern": "/app/:org_slug/settings/notifications",
+      "url": "http://localhost:5173/app/default/settings/notifications",
+      "filename": "75-75-settings-notificaciones.png",
+      "durationMs": 443,
+      "status": "OK"
+    },
+    {
+      "index": 76,
+      "pattern": "/app/:org_slug/alerts",
+      "url": "http://localhost:5173/app/default/alerts",
+      "filename": "76-76-alerts-incidentes-sre.png",
+      "durationMs": 470,
+      "status": "OK"
+    },
+    {
+      "index": 77,
+      "pattern": "/app/:org_slug/audit",
+      "url": "http://localhost:5173/app/default/audit",
+      "filename": "77-77-audit-registro-eventos.png",
+      "durationMs": 432,
+      "status": "OK"
+    },
+    {
+      "index": 78,
+      "pattern": "/app/:org_slug/audit/:event_id",
+      "url": "http://localhost:5173/app/default/audit/00000000-0000-0000-0000-000000000014",
+      "filename": "78-78-audit-detalle-evento.png",
+      "durationMs": 423,
+      "status": "OK"
+    },
+    {
+      "index": 79,
+      "pattern": "/admin/system",
+      "url": "http://localhost:5173/admin/system",
+      "filename": "79-79-admin-system-health-instancia.png",
+      "durationMs": 403,
+      "status": "OK"
+    },
+    {
+      "index": 80,
+      "pattern": "/admin/gpu-nodes",
+      "url": "http://localhost:5173/admin/gpu-nodes",
+      "filename": "80-80-admin-gpu-nodes-inventario.png",
+      "durationMs": 416,
+      "status": "OK"
+    },
+    {
+      "index": 81,
+      "pattern": "/admin/gpu-nodes/:node_id",
+      "url": "http://localhost:5173/admin/gpu-nodes/00000000-0000-0000-0000-000000000010",
+      "filename": "81-81-admin-gpu-nodes-telemetria-hardware.png",
+      "durationMs": 426,
+      "status": "OK"
+    },
+    {
+      "index": 82,
+      "pattern": "/admin/backups",
+      "url": "http://localhost:5173/admin/backups",
+      "filename": "82-82-admin-backups-pgbackrest.png",
+      "durationMs": 421,
+      "status": "OK"
+    },
+    {
+      "index": 83,
+      "pattern": "/admin/backups/:backup_id",
+      "url": "http://localhost:5173/admin/backups/00000000-0000-0000-0000-000000000020",
+      "filename": "83-83-admin-backups-detalle.png",
+      "durationMs": 410,
+      "status": "OK"
+    },
+    {
+      "index": 84,
+      "pattern": "/admin/jobs",
+      "url": "http://localhost:5173/admin/jobs",
+      "filename": "84-84-admin-jobs-colas-bullmq.png",
+      "durationMs": 481,
+      "status": "OK"
+    },
+    {
+      "index": 85,
+      "pattern": "/admin/jobs/:job_id",
+      "url": "http://localhost:5173/admin/jobs/00000000-0000-0000-0000-000000000019",
+      "filename": "85-85-admin-jobs-detalle-tarea.png",
+      "durationMs": 451,
+      "status": "OK"
+    },
+    {
+      "index": 86,
+      "pattern": "/admin/settings",
+      "url": "http://localhost:5173/admin/settings",
+      "filename": "86-86-admin-settings-infraestructura.png",
+      "durationMs": 436,
+      "status": "OK"
+    }
+  ]
+}
