@@ -1,0 +1,77 @@
+name: Inferra source distribution CI
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  backend:
+    runs-on: [self-hosted, linux, x64]
+    defaults: {run: {working-directory: apps/inferra-impl}}
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env: {POSTGRES_USER: inferra, POSTGRES_PASSWORD: test_only_secret, POSTGRES_DB: inferra_test}
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U inferra" --health-interval 10s --health-timeout 5s --health-retries 10
+      valkey:
+        image: valkey/valkey:8.1-alpine
+        ports: ['6379:6379']
+    env:
+      DATABASE_URL: postgresql://inferra:test_only_secret@127.0.0.1:5432/inferra_test
+      TEST_DATABASE_URL: postgresql://inferra:test_only_secret@127.0.0.1:5432/inferra_test
+      VALKEY_URL: redis://127.0.0.1:6379
+      AUTH_PEPPER: local_test_only_64_character_dummy_000000000000000000000000000000
+      APP_ORIGIN: http://localhost:5173
+      API_ORIGIN: http://localhost:3000
+      COOKIE_SECURE: 'false'
+      NODE_ENV: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint && pnpm typecheck
+      - run: pnpm migrate && pnpm test:coverage
+      - run: pnpm build
+      - name: API E2E and BDD with real HTTP server
+        run: |
+          pnpm start > /tmp/inferra-api-ci.log 2>&1 & server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for n in $(seq 1 40); do if curl -fsS http://127.0.0.1:3000/health/live >/dev/null; then break; fi; sleep 1; done
+          curl -fsS http://127.0.0.1:3000/health/live >/dev/null
+          pnpm test:bdd
+          API_TEST_URL=http://127.0.0.1:3000 pnpm test:api
+      - run: pnpm audit --audit-level high
+  frontend:
+    runs-on: [self-hosted, linux, x64]
+    defaults: {run: {working-directory: apps/inferra-web}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build
+      - run: pnpm test:e2e
+      - run: pnpm audit --audit-level high
+  devsecops:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compose config for all profiles
+        run: docker compose --env-file inferra-deploy/.env.example -f inferra-deploy/compose/compose.yaml config --quiet
+      - run: bash -n inferra-deploy/scripts/*.sh
+      - name: Prometheus alerts
+        run: inferra-deploy/scripts/validate-observability.sh
+      - name: Secret leak scanning
+        run: gitleaks detect --no-git --redact
+      - name: Software composition and container security
+        run: |
+          docker build -f apps/inferra-impl/Containerfile -t inferra/api:ci apps/inferra-impl
+          docker build -f apps/inferra-web/Containerfile.runtime -t inferra/web:ci apps/inferra-web
+          trivy image --exit-code 1 --severity CRITICAL,HIGH inferra/api:ci
+          trivy image --exit-code 1 --severity CRITICAL,HIGH inferra/web:ci
+          syft inferra/api:ci -o spdx-json > api.spdx.json
+          syft inferra/web:ci -o spdx-json > web.spdx.json
+      - uses: actions/upload-artifact@v4
+        with: {name: software-bill-of-materials, path: '*.spdx.json'}

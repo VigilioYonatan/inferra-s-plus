@@ -1,0 +1,55 @@
+name: Backend CI / DevSecOps
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  quality:
+    runs-on: [self-hosted, linux, x64]
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env: {POSTGRES_USER: inferra, POSTGRES_PASSWORD: test_secret_not_for_prod, POSTGRES_DB: inferra_test}
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U inferra" --health-interval 10s --health-timeout 5s --health-retries 10
+      valkey:
+        image: valkey/valkey:8.1-alpine
+        ports: ['6379:6379']
+    env:
+      NODE_ENV: test
+      DATABASE_URL: postgresql://inferra:test_secret_not_for_prod@127.0.0.1:5432/inferra_test
+      TEST_DATABASE_URL: postgresql://inferra:test_secret_not_for_prod@127.0.0.1:5432/inferra_test
+      VALKEY_URL: redis://127.0.0.1:6379
+      AUTH_PEPPER: test_only_32_plus_chars_not_for_prod_123456789
+      APP_ORIGIN: http://localhost:5173
+      API_ORIGIN: http://localhost:3000
+      COOKIE_SECURE: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - run: corepack enable
+      - name: Install and create lockfile if absent (pin in trusted release)
+        run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm migrate
+      - run: pnpm test:coverage
+      - run: pnpm build
+      - name: API E2E and BDD with live server
+        run: |
+          pnpm start > /tmp/inferra-api-ci.log 2>&1 & server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for n in $(seq 1 40); do if curl -fsS http://127.0.0.1:3000/health/live >/dev/null; then break; fi; sleep 1; done
+          curl -fsS http://127.0.0.1:3000/health/live >/dev/null
+          pnpm test:bdd
+          API_TEST_URL=http://127.0.0.1:3000 pnpm test:api
+      - name: Dependency review
+        run: pnpm audit --audit-level high
+      - name: Static secrets scan
+        run: |
+          if command -v gitleaks >/dev/null; then gitleaks detect --no-git --redact; else echo 'gitleaks missing' >&2; exit 1; fi
+      - name: Container build and vulnerability scan
+        run: |
+          docker build -f Containerfile -t inferra/api:ci .
+          command -v trivy >/dev/null || exit 1
+          trivy image --exit-code 1 --severity CRITICAL,HIGH inferra/api:ci

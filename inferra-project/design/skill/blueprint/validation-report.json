@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "scope": "static-design-only",
+  "checks_passed": 21,
+  "issues": [],
+  "manifest_counts": {
+    "endpoints": 163,
+    "pages": 71,
+    "repos": 5,
+    "workspace": 1,
+    "files_proposed": 1632
+  },
+  "modules_with_endpoints": {
+    "identity": 24,
+    "organizations": 11,
+    "authorization": 2,
+    "api-credentials": 6,
+    "model-catalog": 10,
+    "model-imports": 5,
+    "model-deployments": 10,
+    "gpu-nodes": 5,
+    "inference": 6,
+    "playground": 7,
+    "request-routing": 5,
+    "quotas": 3,
+    "admission-control": 1,
+    "usage-ledger": 8,
+    "observability-queries": 3,
+    "cost-estimates": 2,
+    "benchmarks": 8,
+    "experiments": 8,
+    "datasets": 5,
+    "artifacts": 6,
+    "audit": 3,
+    "alerts": 2,
+    "notifications": 4,
+    "webhooks": 5,
+    "system": 7,
+    "jobs": 3,
+    "backups": 4
+  },
+  "phases": {
+    "M1": 38,
+    "M3": 52,
+    "M2": 28,
+    "S+": 45
+  },
+  "real_app_tests": "NOT_RUN",
+  "coverage": "NOT_RUN",
+  "gpu_runtime": "NOT_RUN",
+  "restore_drill": "NOT_RUN"
+}

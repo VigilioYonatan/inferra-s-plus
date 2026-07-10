@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "package-and-static-design-only",
+  "checks_passed": 19,
+  "errors": [],
+  "skills_inventory": 103,
+  "classifications": {
+    "BASE": 11,
+    "POR_FEATURE": 34,
+    "CONDICIONAL": 17,
+    "EXCLUIDA_CLOUD": 7,
+    "EXCLUIDA_STACK": 34
+  },
+  "planned_endpoints": 163,
+  "planned_pages": 71,
+  "planned_files": 1632,
+  "runtime_test": "NOT_RUN",
+  "oauth_test": "NOT_RUN",
+  "gpu_benchmark": "NOT_RUN",
+  "coverage": "NOT_RUN",
+  "backup_restore": "NOT_RUN"
+}

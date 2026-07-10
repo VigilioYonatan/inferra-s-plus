@@ -1,0 +1,8 @@
+﻿packages: []
+
+engineStrict: true
+preferFrozenLockfile: true
+verifyStoreIntegrity: true
+strictDepBuilds: false
+dangerouslyAllowAllBuilds: false
+minimumReleaseAge: 1440

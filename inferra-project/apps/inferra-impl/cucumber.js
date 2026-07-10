@@ -1,0 +1,1 @@
+module.exports = { default: '--require-module tsx/cjs --require tests/bdd/steps/**/*.ts tests/bdd/features/**/*.feature' };

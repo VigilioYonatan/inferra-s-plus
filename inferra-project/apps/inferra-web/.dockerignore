@@ -1,0 +1,12 @@
+node_modules
+.git
+.github
+.env
+.env.*
+.secrets
+coverage
+test-results
+playwright-report
+*.log
+*.zip
+pnpm-store

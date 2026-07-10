@@ -1,0 +1,20 @@
+name: Frontend CI
+on: [push, pull_request]
+permissions: { contents: read }
+jobs:
+  quality:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "24" }
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test:coverage
+      - run: pnpm build
+      - run: pnpm audit --audit-level high
+      - run: |
+          command -v gitleaks >/dev/null || exit 1
+          gitleaks detect --no-git --redact

@@ -1,0 +1,837 @@
+{
+  "source_zip": "skills(4).zip",
+  "inventory_count": 103,
+  "classification_counts": {
+    "BASE": 11,
+    "POR_FEATURE": 34,
+    "CONDICIONAL": 17,
+    "EXCLUIDA_CLOUD": 7,
+    "EXCLUIDA_STACK": 34
+  },
+  "skills": [
+    {
+      "skill": "adaptive-context-budget",
+      "status": "CONDICIONAL",
+      "nota": "Cuando la tarea supere presupuesto contextual",
+      "source_path": "skills/adaptive-context-budget/SKILL.md",
+      "sha256": "8314ba5535ce3c1699d68d283036ef3a732ae08cad831a08a81a99cd1151534b",
+      "description": "Orquesta un presupuesto de contexto por evidencias y carga selectiva sin comprimir contratos ni omitir skills seleccionadas."
+    },
+    {
+      "skill": "ai-rag-llmops-finops",
+      "status": "POR_FEATURE",
+      "nota": "Solo serving, observabilidad LLM, seguridad, cuotas y benchmarks; RAG opcional",
+      "source_path": "skills/ai-rag-llmops-finops/SKILL.md",
+      "sha256": "f7abdc14b30d1904ce966c0759b9531e1e093171a29fcc938ad1783a5ba38be1",
+      "description": "Diseñar, auditar y mejorar RAG seguro multi-tenant, retrieval pgvector, embeddings, evaluación, tracing GenAI, límites de costos/FinOps y agentes/tools en NestJS o Laravel siguiendo el snapshot canónico Vigilio. Activar para ingesta, búsqueda híbrida, ACL, pipelines LLM, incidentes IA, presupuestos y gates de producción."
+    },
+    {
+      "skill": "architecture-traceability",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/architecture-traceability/SKILL.md",
+      "sha256": "3a0a5ca23147072d378299e0350212947f14b9dccd6e6b35f0efd75e8802d60e",
+      "description": "Mantiene trazabilidad entre documentación canónica, implementación, OpenSpec, skills, versiones, propietarios y evidencia. Usar al introducir capacidades, publicar tooling, archivar cambios o revisar drift entre repositorios."
+    },
+    {
+      "skill": "aws-platform-foundation",
+      "status": "EXCLUIDA_CLOUD",
+      "nota": "Prohibida por política de infraestructura: nada AWS/Kubernetes/Terraform",
+      "source_path": "skills/aws-platform-foundation/SKILL.md",
+      "sha256": "c6787815e706d6d401edacfc383aab73e5c005fded8470f87b79b23ee9269fef",
+      "description": "Diseña la fundación enterprise en AWS (Nivel 3): Organizations multicuenta, VPC 3 AZs + PrivateLink, CloudFront OAC + WAF con S3 privado, Cognito/Entra PKCE, Pod Identity/IRSA, Outbox->SNS->SQS+DLQ, KMS CMK, Security Hub CSPM y Floci local."
+    },
+    {
+      "skill": "codebase-context-efficiency",
+      "status": "CONDICIONAL",
+      "nota": "Al navegar repositorios grandes",
+      "source_path": "skills/codebase-context-efficiency/SKILL.md",
+      "sha256": "eb9d925f1936e239526b64850046aa44e469250e2805ae13c740a90fb334ee22",
+      "description": "Reduce tokens while preserving evidence and answer quality. Use for code discovery, reviews, debugging, large repositories, logs, CI outputs and cross-repository analysis with Codebase Memory MCP or focused fallbacks."
+    },
+    {
+      "skill": "coderabbit-compliance",
+      "status": "CONDICIONAL",
+      "nota": "Solo si CodeRabbit está conectado y autorizado",
+      "source_path": "skills/coderabbit-compliance/SKILL.md",
+      "sha256": "7da678a54b7423c2b28e12fec5fc98ee4fdff2a05c48efc67865b8140cb8a62d",
+      "description": "Review compliance risks for CodeRabbit and DevSecOps based on evidence and the policies of the consumer repository across TypeScript source, Vitest tests, GitHub Actions workflows, CodeQL rules, and package manifests. Use when creating or modifying workflows, governance policies, unit tests, regex patterns, or package dependencies."
+    },
+    {
+      "skill": "commit-ai-change",
+      "status": "CONDICIONAL",
+      "nota": "Si se pide commit y flujo Git está autorizado",
+      "source_path": "skills/commit-ai-change/SKILL.md",
+      "sha256": "9953c2084e2bd6b6d7609b8b688b2fd37ed827339bb0349afa9dac0555181faa",
+      "description": "Finaliza un prompt autorizado en uno o varios repositorios Git: resuelve prompt_slug, ticket y rama AI, calcula consumidores afectados con Code Intelligence, ejecuta lint/typecheck/tests/E2E selectivos sin omitir gates obligatorios, stagea solo archivos del scope y crea commits verificables sin push. Usar cuando el usuario o Execution Runner pida cerrar, preparar o commitear un prompt terminado."
+    },
+    {
+      "skill": "complete-work-no-shortcuts",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/complete-work-no-shortcuts/SKILL.md",
+      "sha256": "eed5a431b9ea44f2f9d3c393c8445d637b6fac531413aa9ea846affe75ae52b6",
+      "description": "Regla transversal para cualquier prompt o entregable. Evita respuestas superficiales, listas artificialmente cortas, investigación insuficiente, recortes silenciosos y afirmaciones de completitud sin evidencia. Prioriza cobertura útil, precisión y verificación frente al ahorro de tokens."
+    },
+    {
+      "skill": "cpp-native-build-feature",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/cpp-native-build-feature/SKILL.md",
+      "sha256": "d01b369642ad8c32e675e78bf30ddfed022706d5928a0b63077cdf652bdcb94a",
+      "description": "Features C++ para CLI, bibliotecas, Qt Widgets o WebEngine opcional. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "cpp-native-delivery",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/cpp-native-delivery/SKILL.md",
+      "sha256": "91220a3a0c44a7c851491785a4275383bd14ee9c08da0502d551f1f8e7406e78",
+      "description": "Build/release C++/Qt, CMake, firmas y WebEngine packaging. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "cpp-native-security",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/cpp-native-security/SKILL.md",
+      "sha256": "829ea1197e6360318d091f9d2588445621e67953431bd971fdfd1b90f9038c9b",
+      "description": "Seguridad de memoria C++, operaciones nativas, Qt y secrets. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "cpp-native-testing",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/cpp-native-testing/SKILL.md",
+      "sha256": "bfd6950a08141b7cee6be86ff0e6fab2b93df81a043a9ec5c404f772104e65aa",
+      "description": "CTest, Qt Test, memoria, GUI y E2E C++. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "cpp-qt-webengine",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/cpp-qt-webengine/SKILL.md",
+      "sha256": "2b9ad88092aeeebe110ebe46b49c097ec87452388460ef6bf87d16cfdb998ff3",
+      "description": "Qt WebEngine/Chromium: perfiles, cookies, permisos y navegación privada. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "cpp-workspace-architecture",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/cpp-workspace-architecture/SKILL.md",
+      "sha256": "d47b9a39def01e762acc48f6af73d491b55b4b26e668076cbddf1c7721ce893c",
+      "description": "Arquitectura moderna C++20 con CMake targets y boundaries. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "diagnosing-bugs",
+      "status": "CONDICIONAL",
+      "nota": "Incidentes, regresiones, causas raíz",
+      "source_path": "skills/diagnosing-bugs/SKILL.md",
+      "sha256": "cb0aa96ae10c2fa184a37b89f3665c119011e47bb9268f7f1dccf5dff6393c94",
+      "description": "Diagnostica bugs complejos y regresiones de rendimiento con un loop senior reproducible. Usar en proyectos Vigilio cuando un fallo sea intermitente, cruce capas, carezca de causa clara o requiera instrumentacion antes de corregir."
+    },
+    {
+      "skill": "godot-animation-audio",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/godot-animation-audio/SKILL.md",
+      "sha256": "589cfdb14f47380a6b27b43465638a7d24e4029cf6952d6649694c596d0e0d6a",
+      "description": "Diseño de música y SFX, sonidos de salto, animaciones, VFX, cámaras y audio buses Godot."
+    },
+    {
+      "skill": "godot-backend-multiplayer",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/godot-backend-multiplayer/SKILL.md",
+      "sha256": "2a80502e9602a73540dc19fd60867e8babe4c6877538485285d60e8658425fdc",
+      "description": "Conectar juegos Godot a API, login, guardado nube, backend y servidor multijugador autoritativo."
+    },
+    {
+      "skill": "godot-build-gameplay",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/godot-build-gameplay/SKILL.md",
+      "sha256": "443aa9486b8a88741d3a26785e88eb2db922695b3433455a40ba289d60f05d82",
+      "description": "Implementar gameplay 2D/3D Godot, movimiento, saltos, colisiones, cámara y UI."
+    },
+    {
+      "skill": "godot-delivery",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/godot-delivery/SKILL.md",
+      "sha256": "4209a7ba8493d436619164a435412d3104c24ae84706f795d13059698c30b369",
+      "description": "CI/CD de videojuegos Godot: import headless, tests, export PC/web/móvil, licencias y release."
+    },
+    {
+      "skill": "godot-project-architecture",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/godot-project-architecture/SKILL.md",
+      "sha256": "bd9e2b9ff7c4b50ff320662f2ac60208f398fa1ba4cae7c788c3e19234d5c3e8",
+      "description": "Diseñar videojuegos Godot 2D/3D, escenas, recursos y decisiones de motor."
+    },
+    {
+      "skill": "godot-testing-quality",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/godot-testing-quality/SKILL.md",
+      "sha256": "e7a71dc616f5becfb3062b9424dd7f9bdca81accd87610339e3d2a9be056ee9e",
+      "description": "Testing unitario, integración, escenas Godot, E2E jugable, rendimiento y seguridad."
+    },
+    {
+      "skill": "grill-me",
+      "status": "CONDICIONAL",
+      "nota": "Revisión adversaria de requisitos/ADRs por pedido",
+      "source_path": "skills/grill-me/SKILL.md",
+      "sha256": "82136b2433f1341b8b81dcf91175ab92349ad1e7eacf5028d23bb09ad26d820b",
+      "description": "Entrevista senior para alinear diseño, riesgos y plan antes de implementar. Usar en proyectos Vigilio cuando existan decisiones ambiguas de arquitectura, contratos, datos, seguridad, infraestructura, pruebas o rollback."
+    },
+    {
+      "skill": "improve-codebase-architecture",
+      "status": "CONDICIONAL",
+      "nota": "Refactor arquitectónico con evidencia",
+      "source_path": "skills/improve-codebase-architecture/SKILL.md",
+      "sha256": "a6aac6096d0017bbe5d1d4436de16399bce676f9520f3a843ec9a1c4a49817ac",
+      "description": "Escanea deuda arquitectónica con foco en módulos shallow, locality, acoplamiento y seams de prueba. Usar al revisar estructura, modularidad, boundaries, duplicacion o complejidad accidental en proyectos Vigilio."
+    },
+    {
+      "skill": "kubernetes-eks-delivery",
+      "status": "EXCLUIDA_CLOUD",
+      "nota": "Prohibida por política de infraestructura: nada AWS/Kubernetes/Terraform",
+      "source_path": "skills/kubernetes-eks-delivery/SKILL.md",
+      "sha256": "af311591f4c75991016d2e95aa4847fedee109fcaab4ff3b074cb82fcf91e92a",
+      "description": "Implementa y revisa entrega productiva sobre AWS EKS y GitOps (Nivel 3). Usar para ALB/Gateway API, CloudFront+WAF, Argo CD, Argo Rollouts, Helm/Kustomize, HPA/KEDA/Karpenter, PDB, NetworkPolicy, EKS Pod Identity/IRSA, migraciones PreSync y rollback."
+    },
+    {
+      "skill": "kubernetes-gitops-delivery",
+      "status": "EXCLUIDA_CLOUD",
+      "nota": "Prohibida por política de infraestructura: nada AWS/Kubernetes/Terraform",
+      "source_path": "skills/kubernetes-gitops-delivery/SKILL.md",
+      "sha256": "23ffd44cc9d62afff127a159b9ab279d6026c3b85deeeabace41c42a1d788022",
+      "description": "Gestiona entrega GitOps enterprise donde CI construye y Argo CD despliega (cero kubeconfig en CI), promoción encadenada por digest sha256, Prune=false en datos productivos, PreSync migrations, Review Apps aisladas y Argo Rollouts sobre Gateway API."
+    },
+    {
+      "skill": "kubernetes-policy-runtime-security",
+      "status": "EXCLUIDA_CLOUD",
+      "nota": "Prohibida por política de infraestructura: nada AWS/Kubernetes/Terraform",
+      "source_path": "skills/kubernetes-policy-runtime-security/SKILL.md",
+      "sha256": "d41bd62844f0dc8bc8a9b432f928906076dc64ecb15c223c34959961e659d47a",
+      "description": "Aplica seguridad de red, admisión y kernel en Kubernetes: Cilium eBPF con WireGuard, Gateway API, políticas Kyverno 1.19+ CEL estables (ValidatingPolicy e ImageValidatingPolicy en Audit+Deny) y Tetragon eBPF Observe -> Audit -> Enforce con break-glass TTL."
+    },
+    {
+      "skill": "mobile-mfe-build-feature",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/mobile-mfe-build-feature/SKILL.md",
+      "sha256": "74ee1f1cbedb50a0cb9604d27aa4fed996a367a3ea1cd4e08efb52cf54773cbf",
+      "description": "Implement Expo and React Native features with Expo Router, native lifecycle handling, explicit state ownership, accessibility, and minimal dependencies. Use for screens, routes, feature modules, navigation, uploads, permissions, offline behavior, or changes under app/, src/screens/, src/features/, src/providers/, and native configuration."
+    },
+    {
+      "skill": "mobile-mfe-contracts",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/mobile-mfe-contracts/SKILL.md",
+      "sha256": "809e713367032e6fd1cc4dde1ca415776221e77f5ffa80cfd1b2117d2084323d",
+      "description": "Integrate mobile HTTP flows using backend-owned browser-safe Zod contracts, derived UI types, React Hook Form, TanStack Query, and native file metadata. Use when adding or changing requests, responses, CRUD forms, pagination, mutations, cache invalidation, authentication payloads, presigned uploads, form adapters, or feature service boundaries."
+    },
+    {
+      "skill": "mobile-mfe-quality",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/mobile-mfe-quality/SKILL.md",
+      "sha256": "fc8036391122dbca41a38d8a766d1c0bd63b33ef790fb67a336c7ffd51ed366a",
+      "description": "Audit React Native accessibility, performance, lifecycle resilience, offline behavior, bundle budgets, and privacy-aware observability. Use for screen reviews, list rendering, startup, memory, accessibility, AppState/NetInfo behavior, crash telemetry, performance regressions, Expo export size, or release quality gates."
+    },
+    {
+      "skill": "mobile-mfe-security-delivery",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/mobile-mfe-security-delivery/SKILL.md",
+      "sha256": "4e05b7e576aeefee1dac4e66208e919c7790a22d357ec6597b7d72277c9d71d5",
+      "description": "Review Expo and React Native security, secrets, permissions, deep links, native storage, dependency supply chain, EAS builds, OTA updates, signing, SBOMs, and environment promotion. Use for authentication, SecureStore, uploads, app configuration, native permissions, CI workflows, EAS profiles, release channels, certificates, or production delivery changes."
+    },
+    {
+      "skill": "mobile-mfe-testing",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/mobile-mfe-testing/SKILL.md",
+      "sha256": "f6b6a0209836b71045234b5175e4080ab7469975e4c1b84023e4f1ce786a24ad",
+      "description": "Design and execute honest React Native test coverage with Jest, React Native Testing Library, contract tests, and Maestro. Use for unit, component, screen, lifecycle, navigation, upload, accessibility, integration, E2E, coverage thresholds, flaky tests, or CI evidence for an Expo application."
+    },
+    {
+      "skill": "node-nest-async-workers",
+      "status": "POR_FEATURE",
+      "nota": "Outbox, idempotencia, BullMQ/Valkey, reintentos (ignorar SNS/SQS)",
+      "source_path": "skills/node-nest-async-workers/SKILL.md",
+      "sha256": "bbca75d901fec333cfd64d15ce83d8e933c8d66d0406ff4e1e51be75a669139b",
+      "description": "Diseña, implementa y revisa workers Node/Nest con outbox, SNS, SQS y DLQ. Usar para publicación transaccional, idempotencia, concurrencia, visibility timeout, retries, poison messages, replay y escalamiento."
+    },
+    {
+      "skill": "node-nest-build-feature",
+      "status": "POR_FEATURE",
+      "nota": "Backend: bounded contexts, controllers, DTOs, application services",
+      "source_path": "skills/node-nest-build-feature/SKILL.md",
+      "sha256": "26d1072f4d9d1969d694d2947ab1198dc27b0cb85dd3b77645560f880e89cbad",
+      "description": "Implementa y revisa features backend con DDD pragmatico, NestJS, Zod, DTOs request/response, application services, repository ports, adaptadores Drizzle y OpenAPI. Usar en proyectos Node/Nest Vigilio al crear o modificar bounded contexts, CRUD, endpoints, schemas, DTOs, services, controllers, repositories o contratos HTTP."
+    },
+    {
+      "skill": "node-nest-persistence",
+      "status": "POR_FEATURE",
+      "nota": "PostgreSQL, Drizzle, constraints, transacciones, migraciones",
+      "source_path": "skills/node-nest-persistence/SKILL.md",
+      "sha256": "0c913f221496dbfb007ecfb75433c9f5226750bfe4bece2806ea08e6dc0bded5",
+      "description": "Implementa y revisa persistencia PostgreSQL con Drizzle, repository ports, constraints, transacciones, migraciones expand-contract, seeders, cache-aside, idempotencia, outbox e inbox. Usar en proyectos Node/Nest Vigilio al modificar tablas, repositories, queries, migrations, cache, eventos, concurrencia, dinero o integridad de datos."
+    },
+    {
+      "skill": "node-nest-realtime",
+      "status": "POR_FEATURE",
+      "nota": "Streaming SSE HTTP y cancelación",
+      "source_path": "skills/node-nest-realtime/SKILL.md",
+      "sha256": "17197f6fdf36fb0106bc917173803a808ddbfa498676769a05a06739ce8cba4a",
+      "description": "Diseña, implementa y revisa WebSocket, Socket.IO y SSE en backends Node/Nest. Usar para gateways, eventos, rooms, autenticación, reconexión, adapters compartidos, escalamiento y entrega unidireccional."
+    },
+    {
+      "skill": "node-nest-security",
+      "status": "POR_FEATURE",
+      "nota": "Autenticación OAuth/OTP/MFA, guards, tenancy, RBAC",
+      "source_path": "skills/node-nest-security/SKILL.md",
+      "sha256": "a8d60f8b17808237ba1a79fce77d54bb25df5b4443953096eed1e066bba50bad",
+      "description": "Aplica autenticación, autorización, secretos, validación de entrada y protección de datos a NestJS sin asumir Lambda ni EKS."
+    },
+    {
+      "skill": "node-nest-security-aws",
+      "status": "EXCLUIDA_CLOUD",
+      "nota": "Prohibida por política de infraestructura: nada AWS/Kubernetes/Terraform",
+      "source_path": "skills/node-nest-security-aws/SKILL.md",
+      "sha256": "77c910716c3f1383db10a784216ff86af909856c5cbf5929a757abf1ed9fddbc",
+      "description": "Implementa y revisa seguridad runtime y AWS en backends Node/Nest Vigilio: private-by-default, JWT/AuthZ, Zod env, Secrets Manager/SSM, RDS, S3, Bedrock, Pino, IAM, CDK, Lambda Web Adapter, stages y deploy seguro. Usar al tocar auth, permisos, secretos, configuracion, AWS SDK, uploads, IA, observabilidad, CDK o GitHub Actions."
+    },
+    {
+      "skill": "node-nest-technologies",
+      "status": "POR_FEATURE",
+      "nota": "Backend: validar versiones y compatibilidad",
+      "source_path": "skills/node-nest-technologies/SKILL.md",
+      "sha256": "3e9d94c985e738cece509718835afc12508e0dd284bf0710812ae94ce18f52d0",
+      "description": "Verifica APIs y arquitectura backend 2026 para Node.js 24, NestJS 11/12 segun baseline ejecutable, Zod 4/nestjs-zod, Drizzle, PostgreSQL, Pino, OpenTelemetry, AWS SDK v3 y EKS. Usar antes de implementar o revisar backend, persistencia, contratos, observabilidad, AWS, Kubernetes o cambios sensibles a version en bus-impl-v2."
+    },
+    {
+      "skill": "node-nest-testing",
+      "status": "POR_FEATURE",
+      "nota": "Vitest, integración real, API E2E, BDD",
+      "source_path": "skills/node-nest-testing/SKILL.md",
+      "sha256": "c546aefa807e07fa8c2b380fbe42a730080ce74031a85505f3f03eb5ca06817b",
+      "description": "Diseña, implementa y revisa pruebas de backends Node/Nest Vigilio con Vitest, PostgreSQL real, Cucumber y Playwright; cubre unit, integration, BDD, E2E API, OpenAPI, seguridad, cobertura y flakiness. Usar al agregar tests, corregir bugs o cambiar auth, repositories, adapters AWS, DTOs, endpoints, pipelines o quality gates."
+    },
+    {
+      "skill": "onprem-kubernetes-foundation",
+      "status": "EXCLUIDA_CLOUD",
+      "nota": "Prohibida por política de infraestructura: nada AWS/Kubernetes/Terraform",
+      "source_path": "skills/onprem-kubernetes-foundation/SKILL.md",
+      "sha256": "69f3b2dbc66a14b386a59e75c864171e3fac45d0af94058274b253088ef5435e",
+      "description": "Diseña y opera clústeres Kubernetes autoalojados/on-premise (Nivel 2) con RKE2/K3s sin kube-proxy, Cilium eBPF + WireGuard, MetalLB, Gateway API, CSI replicado (Longhorn/Rook-Ceph) y cert-manager."
+    },
+    {
+      "skill": "openspec-apply-change",
+      "status": "CONDICIONAL",
+      "nota": "Cuando se usa OpenSpec en implementación aprobada",
+      "source_path": "skills/openspec-apply-change/SKILL.md",
+      "sha256": "50fc19174d7c5e4de4b5e4fbea672097d9ea47b86405f6d9086d20e49fc443ab",
+      "description": "Implement tasks from an OpenSpec change. Use when the user wants to start implementing, continue implementation, or work through tasks."
+    },
+    {
+      "skill": "openspec-archive-change",
+      "status": "CONDICIONAL",
+      "nota": "Cierre OpenSpec formal",
+      "source_path": "skills/openspec-archive-change/SKILL.md",
+      "sha256": "fb45fc477630cf0282428034b1f8ec58acf7c17093ec81698fb3f7ecc7fda6a3",
+      "description": "Archive a completed change in the experimental workflow. Use when the user wants to finalize and archive a change after implementation is complete."
+    },
+    {
+      "skill": "openspec-explore",
+      "status": "CONDICIONAL",
+      "nota": "Exploración de cambio complejo con OpenSpec",
+      "source_path": "skills/openspec-explore/SKILL.md",
+      "sha256": "149a53558f4beef1c581bf73e0f9edbaafd7d4243867f1f128cd60c3b75ae1d9",
+      "description": "Enter explore mode - a thinking partner for exploring ideas, investigating problems, and clarifying requirements. Use when the user wants to think through something before or during a change."
+    },
+    {
+      "skill": "openspec-propose",
+      "status": "CONDICIONAL",
+      "nota": "Propuesta de cambio cross-repo/breaking",
+      "source_path": "skills/openspec-propose/SKILL.md",
+      "sha256": "a4ecc9da834880a57554d333945049db539b01c2c92b4c34824b5609e9022983",
+      "description": "Propose a new change with all artifacts generated in one step. Use when the user wants to quickly describe what they want to build and get a complete proposal with design, specs, and tasks ready for implementation."
+    },
+    {
+      "skill": "openspec-sync-specs",
+      "status": "CONDICIONAL",
+      "nota": "Sincronización de especificaciones aprobadas",
+      "source_path": "skills/openspec-sync-specs/SKILL.md",
+      "sha256": "d54c3e8a801192ed7b9f40b5c4fd0105859c95933f89adcd5c34a6184e75e8e4",
+      "description": "Sync delta specs from a change to main specs. Use when the user wants to update main specs with changes from a delta spec, without archiving the change."
+    },
+    {
+      "skill": "openspec-update-change",
+      "status": "CONDICIONAL",
+      "nota": "Cambio de alcance OpenSpec",
+      "source_path": "skills/openspec-update-change/SKILL.md",
+      "sha256": "ba2a06facf543ccc84a9370bdf17532bffbdc8e9518ae4896b7c7445a436ae53",
+      "description": "Update an OpenSpec change by revising its existing planning artifacts and keeping them coherent with one another. Use when the user wants to revise a change's plan, fold new decisions into it, or reconcile its artifacts after an edit. Never edits code."
+    },
+    {
+      "skill": "php-laravel-build-feature",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-build-feature/SKILL.md",
+      "sha256": "eb0477e379b4eb335da95b849fe6bef0498dfa791e1b49301ae42d2c6f550b30",
+      "description": "Implementa controllers, FormRequests, DTOs, casos de uso semánticos, repositorios y DI."
+    },
+    {
+      "skill": "php-laravel-contracts",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-contracts/SKILL.md",
+      "sha256": "a5c8a8ec4913c54b2dc1d2e1acb73aa78b3ec43dad7b2ee04bb80d0399eeaa01",
+      "description": "Implementa respuestas y queries PHP conformes con Zod→OpenAPI/Scalar compartido."
+    },
+    {
+      "skill": "php-laravel-persistence",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-persistence/SKILL.md",
+      "sha256": "ced532d112b177d5f4437012942e815933bc0c02322ed7ac365b6d3cb8663d73",
+      "description": "Eloquent PostgreSQL, transacciones, repository ports, cache-aside, TTL, invalidación y migraciones."
+    },
+    {
+      "skill": "php-laravel-quality",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-quality/SKILL.md",
+      "sha256": "70a76e6da20bf8eea67c122ab6193afdf87daf82a4e251edec2c522494601e6f",
+      "description": "PHP strict types, SOLID, PHPStan/Larastan/Pint/Composer gates y CI."
+    },
+    {
+      "skill": "php-laravel-queues",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-queues/SKILL.md",
+      "sha256": "15aa895021d43d94cf572dfc3d5ccac8ad52ea03c6f8cc6f65d32a3e8d8bbdd0",
+      "description": "Jobs, eventos, Redis/SQS, transactional outbox, DLQ e idempotencia."
+    },
+    {
+      "skill": "php-laravel-realtime",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-realtime/SKILL.md",
+      "sha256": "365a2f3c6d3940e93721bc296ccd1178e8717967997eb78563b1ea3437b9ed07",
+      "description": "Reverb/broadcasting y WebSocket auth cuando la feature lo necesita."
+    },
+    {
+      "skill": "php-laravel-runtime",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-runtime/SKILL.md",
+      "sha256": "cd6bf7c064349b023a57f9b549b6ae1de51c273b45e2861432ed63c14fb4abdf",
+      "description": "PHP-FPM, Docker, EKS, OpenTelemetry, logs, métricas, probes y canary."
+    },
+    {
+      "skill": "php-laravel-security",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-security/SKILL.md",
+      "sha256": "24908ca94acdd402445b48ef5b46ebcced6ccedc002435955154ba71b593248a",
+      "description": "Sanctum opcional, policies, tenant isolation, configuración y pruebas de autorización."
+    },
+    {
+      "skill": "php-laravel-technologies",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-technologies/SKILL.md",
+      "sha256": "ab146c9220141c691f276437fa9295db8f751311f65a12ada3dd93640988a4b7",
+      "description": "Selecciona PHP/Laravel conforme a `technology/versions.md` con Composer reproducible."
+    },
+    {
+      "skill": "php-laravel-testing",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/php-laravel-testing/SKILL.md",
+      "sha256": "61c0cd9699df0d2f0c4cc899171e2236091ca4ca6798d662629bd1891a6d5dd8",
+      "description": "Pest5/PHPUnit13 con domain/feature/integration/contract y evidencia real."
+    },
+    {
+      "skill": "platform-cicd-factory",
+      "status": "POR_FEATURE",
+      "nota": "CI/CD self-hosted o runners autorizados, OIDC firma OCI, sin cloud",
+      "source_path": "skills/platform-cicd-factory/SKILL.md",
+      "sha256": "1534fdf5a6e7099ef43b87eb73f9970c3bd091c305cfeac0206e8055900f2df9",
+      "description": "Centraliza flujos CI/CD mediante plantillas y acciones reutilizables fijadas por SHA con permisos mínimos, OIDC sin secretos estáticos y gates fail-closed para Compose, Kubernetes GitOps y Cloud."
+    },
+    {
+      "skill": "platform-compose-vps-delivery",
+      "status": "BASE",
+      "nota": "Aplicar Docker Compose ÚNICAMENTE: las opciones Podman son incompatibles con la decisión del proyecto",
+      "source_path": "skills/platform-compose-vps-delivery/SKILL.md",
+      "sha256": "7a365486317ebedbb17611e960ad230d018f144533eb7f51005a5661c80c5533",
+      "description": "Diseña y opera despliegues Cloud-Neutral para proyectos simples a medianos (1-3 VPS) usando un único Docker/Podman Compose endurecido, Caddy TLS, Ansible agnóstico (platform-ops) y backups pgBackRest PITR sin sobreingeniería de Kubernetes."
+    },
+    {
+      "skill": "platform-data-reliability",
+      "status": "POR_FEATURE",
+      "nota": "PITR, migraciones, consistencia y backups",
+      "source_path": "skills/platform-data-reliability/SKILL.md",
+      "sha256": "896cada87c31e3860d370f6cf1c31cb3f6866c50526cc5749dabef36f159a44d",
+      "description": "Administra confiabilidad de datos 3-2-1, PostgreSQL HA (pgBackRest en VPS Compose o CloudNativePG con WAL separado y Barman Cloud CNPG-I en Kubernetes), Valkey y drills automatizados de restauración física PITR."
+    },
+    {
+      "skill": "platform-environment-promotion",
+      "status": "POR_FEATURE",
+      "nota": "Mismo digest entre staging/producción Compose",
+      "source_path": "skills/platform-environment-promotion/SKILL.md",
+      "sha256": "693fdda6b6b3d2334ab7ab9ecfe987beb44fbc5dd226e27fe6c367660af866a8",
+      "description": "Gobierna la jerarquía de entornos (prod-local, review, staging, producción) y la promoción encadenada de digests OCI inmutables (@sha256) sin recompilación en Compose, Kubernetes GitOps y Cloud."
+    },
+    {
+      "skill": "platform-finops",
+      "status": "POR_FEATURE",
+      "nota": "Coste estimado de GPU/tokens y presupuestos, no billing AWS",
+      "source_path": "skills/platform-finops/SKILL.md",
+      "sha256": "f84f1aca555afab76fd2f81e7ba0004d7ca26891ed11a3cd9488dba129e4cd04",
+      "description": "Implementa inteligencia y optimización FinOps en los 3 niveles (evitar sobreingeniería K8s/NAT en apps simples, gate Infracost en PR, OpenCost, ARM64/Graviton, Spot/Karpenter, TTL en Review Apps, caché y cardinalidad de telemetría)."
+    },
+    {
+      "skill": "platform-local-production-lab",
+      "status": "POR_FEATURE",
+      "nota": "Laboratorio real con el mismo compose.yaml",
+      "source_path": "skills/platform-local-production-lab/SKILL.md",
+      "sha256": "74b91ede57c3694fa1ccaae49bbdf15a5b0593d0210c0f634d154acd9a68456c",
+      "description": "Orquesta simulaciones locales reproducibles (prod-local) en 3 perfiles según escala: Compose puro sin Kubernetes (proyectos simples/medianos), Kind aislado con Kyverno/Tetragon (GitOps enterprise) o emulación ligera con Floci (AWS/Azure)."
+    },
+    {
+      "skill": "platform-observability-sre",
+      "status": "POR_FEATURE",
+      "nota": "OTel, Prometheus, Grafana, Loki, Tempo, SLO",
+      "source_path": "skills/platform-observability-sre/SKILL.md",
+      "sha256": "a522936ffec42f41f1cc74a75c27cbeac630c685a442caad7c43e15495e462f8",
+      "description": "Diseña y verifica contratos de observabilidad y SRE: correlación RUM + OTel + Prometheus/Loki/Tempo/Grafana, Alertmanager con TLS e inhibición, pruebas unitarias promtool test rules, cero PII/alta cardinalidad y burn-rate de SLOs."
+    },
+    {
+      "skill": "platform-repository-workspace",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/platform-repository-workspace/SKILL.md",
+      "sha256": "9a8b274b53bff9071c014a8dbda5041a575ed5922f1acec2032842059ca26467",
+      "description": "Delimita fronteras entre repositorios en las 3 arquitecturas (sin package.json raíz ni carpeta contracts/), organiza submódulos auditables e impone endurecimiento supply-chain pnpm (packages: []) e higiene de artefactos."
+    },
+    {
+      "skill": "platform-resilience-disaster-recovery",
+      "status": "POR_FEATURE",
+      "nota": "Runbooks, restore drills, RTO/RPO y rollback",
+      "source_path": "skills/platform-resilience-disaster-recovery/SKILL.md",
+      "sha256": "7f4b30defa32c67768dca50c5b61eb67fd346796f03a1c9173fbc533f47d4748",
+      "description": "Diseña continuidad de negocio, objetivos RPO/RTO medidos, respaldos externos 3-2-1 (Velero / pgBackRest / Barman), conmutación entre dominios de fallo reales, redrive de DLQ e ingeniería del caos (Chaos Mesh / GameDays)."
+    },
+    {
+      "skill": "platform-scalability-capacity",
+      "status": "POR_FEATURE",
+      "nota": "Capacidad GPU y concurrencia con métricas reales",
+      "source_path": "skills/platform-scalability-capacity/SKILL.md",
+      "sha256": "9c0f7c91e1d1d481233fade437ab73cd53bef46f34979f25ac36c041ddae3d29",
+      "description": "Optimiza capacidad y escalabilidad progresiva (EXPLAIN ANALYZE, PgBouncer, Outbox SKIP LOCKED, workers idempotentes) y configura autoscaling en Kubernetes con exclusión mutua HPA vs KEDA, PDB, topologySpreadConstraints y Karpenter."
+    },
+    {
+      "skill": "platform-validation-evidence",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/platform-validation-evidence/SKILL.md",
+      "sha256": "c3ee8aeca5ab436dd5feea20daf299d0e62561a88c1895e8066fc603db4d95b7",
+      "description": "Genera y audita evidencia operativa determinista (PASS, FAIL, NOT_RUN, BLOCKED), preflights, compatibilidad OpenAPI sin carpeta contracts/ y trazabilidad DORA/auditoría."
+    },
+    {
+      "skill": "precision-skill-reading",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/precision-skill-reading/SKILL.md",
+      "sha256": "d94346ff97635eebd1cc5c06a2b975226d9d07169120a372594b8d0006089034",
+      "description": "Super-skill de lectura fiel: resuelve alcance, referencias, contradicciones, API real y evidencia de cada instrucción."
+    },
+    {
+      "skill": "refactor-existing-code",
+      "status": "CONDICIONAL",
+      "nota": "Cambios sobre código existente que requieran compatibilidad",
+      "source_path": "skills/refactor-existing-code/SKILL.md",
+      "sha256": "87b323fa43e7f014ede024e7f15a782935683c00e1f469f205b241877051c305",
+      "description": "Refactoriza código existente de PHP/Laravel o TypeScript/NestJS sin romper contratos, reglas de negocio, seguridad ni evidencia."
+    },
+    {
+      "skill": "repository-readme-architecture",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/repository-readme-architecture/SKILL.md",
+      "sha256": "fd5a03774279e42f4da471cb2a9927438efe71c87b42d2a5cc0855db81ff7b89",
+      "description": "Autoría y validación de README.md profesionales de producción con quickstart <10 min, arquitectura limpia, contratos, testing, env vars y runbooks para backend, frontend y monorepos."
+    },
+    {
+      "skill": "review-code-change",
+      "status": "POR_FEATURE",
+      "nota": "Review separado read-only al finalizar cada cambio",
+      "source_path": "skills/review-code-change/SKILL.md",
+      "sha256": "f4a40f2d9aa0d8bea0e17fb50bf0d9ee660f3c04ab9d685e1a4f17b399b40cbe",
+      "description": "Revisa diffs, pull requests o implementaciones terminadas con evidencia y severidad, alineando codigo, contratos y gates con docs/rules y OpenSpec. Usar solo cuando se solicite code review, revision de PR, readiness para merge o la fase REVIEW; no usar para implementar o corregir cambios."
+    },
+    {
+      "skill": "rust-agent-runtime-security",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/rust-agent-runtime-security/SKILL.md",
+      "sha256": "43e224f9d8dd75a0d8d16cd3aebd0ff07e0272772a2b1373f71717c4da805f84",
+      "description": "Seguridad de procesos, permisos, FFI y workspace en Rust. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "rust-native-build-feature",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/rust-native-build-feature/SKILL.md",
+      "sha256": "7552d05877873dd0373f84d648bc0f8b72a45b5731fe02e737f5c6d6031f675f",
+      "description": "Construcción de features Rust según intención, sin imponer Desktop. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "rust-native-delivery",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/rust-native-delivery/SKILL.md",
+      "sha256": "3f6bb663311fde17214216e761559335abd4a64c7e0473a34f398b72b46b7677",
+      "description": "CI/CD Rust, distribución de binarios y revisiones de supply chain. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "rust-native-testing",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/rust-native-testing/SKILL.md",
+      "sha256": "18e43ee82ed2fde6959ed20310cfa18bfac44c96532b8ef7281f237b863de829",
+      "description": "Pruebas de Cargo, seguridad, concurrencia y GUI reales. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "rust-workspace-architecture",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/rust-workspace-architecture/SKILL.md",
+      "sha256": "3cfaa492722273aa4b1b7a0a30212b67ba31cc7dc28fa356a454a7f40013456e",
+      "description": "Arquitectura de Cargo Workspaces, crates y boundaries. Activar únicamente para tareas relevantes después de inspeccionar el proyecto y seleccionar capacidades mediante el catálogo dinámico de Vigilio."
+    },
+    {
+      "skill": "shared-technologies",
+      "status": "POR_FEATURE",
+      "nota": "Versiones, herramientas y convenciones compartidas",
+      "source_path": "skills/shared-technologies/SKILL.md",
+      "sha256": "35372378e7d3605932187a719986338f43d794eb0483aac980ce4974d4290c61",
+      "description": "Verifica compatibilidad real de TypeScript, Node.js, pnpm, Zod, OpenAPI, contratos browser-safe, Vitest, Playwright, Biome, tsx, Husky y paquetes privados compartidos. Usar antes de generar o revisar codigo frontend/backend, cambiar versiones, consumir contratos, configurar tooling o resolver un STACK_* mismatch."
+    },
+    {
+      "skill": "skill-create-docs",
+      "status": "BASE",
+      "nota": "Diseño, auditoría y coherencia del SuperSkill",
+      "source_path": "skills/skill-create-docs/SKILL.md",
+      "sha256": "ebe459b0b1ef6070dd373a5631a58d3a1d9445775d62cc919dc752cd307987de",
+      "description": "Create, migrate, synchronize, or audit implementation-ready docs/rules packages for Prompt Builder projects. Use for project discovery, documentation generation, pack/plan authoring, or any PROPOSE/APPLY/REVIEW change that must keep canonical documentation and generated prompts aligned. Do not use it as a replacement for stack-specific implementation skills."
+    },
+    {
+      "skill": "software-supply-chain-security",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/software-supply-chain-security/SKILL.md",
+      "sha256": "38edb2f0439acca49a68b0888a5b90fd87b88c9692499e0f699de6341fb977bb",
+      "description": "Implementa seguridad de cadena de suministro SLSA v1.2 con evidencia honesta: BuildKit rootless, Distroless glibc, Containerfile.runtime sin fuga de tokens, pnpm packages:[], Syft SBOM, Trivy, OpenVEX, firma Cosign OIDC y admisión Kyverno ImageValidatingPolicy CEL."
+    },
+    {
+      "skill": "symbol-ownership-architecture",
+      "status": "POR_FEATURE",
+      "nota": "Ownership de símbolos al extraer/reorganizar módulos",
+      "source_path": "skills/symbol-ownership-architecture/SKILL.md",
+      "sha256": "68f069924ef5f93df1da16fe99b17c96d1fae7905ec8b983ad7b9e51c49a5008",
+      "description": "Revisión e implementación de ownership de constantes, tipos, interfaces, puertos, utilidades y shared por feature para cualquier stack."
+    },
+    {
+      "skill": "terraform-iac-delivery",
+      "status": "EXCLUIDA_CLOUD",
+      "nota": "Prohibida por política de infraestructura: nada AWS/Kubernetes/Terraform",
+      "source_path": "skills/terraform-iac-delivery/SKILL.md",
+      "sha256": "7f7ece2eca63fb87fa1328763731834533546ffeb2b264db1e67079c89ca9824",
+      "description": "Entrega infraestructura declarativa con Terraform en raíces de estado aisladas (red vs clúster con hash SHA-256 anti-drift y validación anti-solapamiento CIDR), bloqueo nativo use_lockfile, terraform test, Trivy/Checkov, Conftest e Infracost."
+    },
+    {
+      "skill": "token-context-compression",
+      "status": "CONDICIONAL",
+      "nota": "Contexto grande, sin truncar normas críticas",
+      "source_path": "skills/token-context-compression/SKILL.md",
+      "sha256": "54540a2a94a7e87c6080f27265abf857dad518eb59e6c899a81361e825f4869e",
+      "description": "Comprime logs repetitivos y texto exploratorio para reducir ruido. Usar con CI, CloudWatch o Lambda; nunca usar contenido comprimido como única evidencia de contratos, seguridad o revisiones sensibles."
+    },
+    {
+      "skill": "ui-art-direction",
+      "status": "POR_FEATURE",
+      "nota": "Dirección visual profesional propia",
+      "source_path": "skills/ui-art-direction/SKILL.md",
+      "sha256": "b0ea63a1f8d3427d0bf8095d7534b922aff4c4ef8bbb171c3fd724e90df179d8",
+      "description": "Genera dirección artística original y específica al dominio, sin clonar templates populares."
+    },
+    {
+      "skill": "ui-design-system",
+      "status": "POR_FEATURE",
+      "nota": "Tokens, componentes, estados, dark/light",
+      "source_path": "skills/ui-design-system/SKILL.md",
+      "sha256": "7c638aed4aa225be40f9fdcea2b722078ca0dd93968d8b5f44361d2156371bd1",
+      "description": "Construye componentes, tokens, modos y contratos reutilizables sin abstraer en exceso."
+    },
+    {
+      "skill": "ui-interaction-motion",
+      "status": "POR_FEATURE",
+      "nota": "Progreso de jobs, feedback, reduced motion",
+      "source_path": "skills/ui-interaction-motion/SKILL.md",
+      "sha256": "77aa468d36d2994c3c81d37166ac79f6fad6b68fe921ff4d0a106ad9247a7f14",
+      "description": "Motion, microinteracciones, animation, feedback, haptics y SFX al servicio de la tarea."
+    },
+    {
+      "skill": "ui-prototyping-handoff",
+      "status": "CONDICIONAL",
+      "nota": "Cuando se requieran prototipos/handoff",
+      "source_path": "skills/ui-prototyping-handoff/SKILL.md",
+      "sha256": "390e8cb8e19945275bdb3472706e560dd0baec66ac5d2a7462f47592fedc0037",
+      "description": "Prototipos, Figma variables/Auto Layout, documentación y traspaso a ingeniería."
+    },
+    {
+      "skill": "ui-quality-review",
+      "status": "POR_FEATURE",
+      "nota": "Review UX/UI independiente",
+      "source_path": "skills/ui-quality-review/SKILL.md",
+      "sha256": "16c150d7a6f46641ee9e748de789d1587b16c6c4ddf25f2657ee009b7daa680c",
+      "description": "Audita UX/UI por riesgo; accesibilidad, performance, estados, originalidad y CI."
+    },
+    {
+      "skill": "ux-accessibility",
+      "status": "POR_FEATURE",
+      "nota": "WCAG 2.2 AA, teclado, lectores, contraste",
+      "source_path": "skills/ux-accessibility/SKILL.md",
+      "sha256": "903b5a084fc4f07dc395e5f0144c01094d18dad1ae02eecd46d602c394e6877f",
+      "description": "Garantiza planificación y pruebas de accesibilidad conforme a plataforma y capacidad real."
+    },
+    {
+      "skill": "ux-desktop-experience",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/ux-desktop-experience/SKILL.md",
+      "sha256": "4ce740c09b372ddf98e14d4a2bad013efb548c9604bf867dd9d17288fdf9cdb3",
+      "description": "Especialista UI/UX desktop Rust GPUI o C++ Qt, con ventanas, foco, docking y productividad."
+    },
+    {
+      "skill": "ux-game-experience",
+      "status": "EXCLUIDA_STACK",
+      "nota": "Otro stack/producto (no es parte de Inferra web + NestJS)",
+      "source_path": "skills/ux-game-experience/SKILL.md",
+      "sha256": "5b45fa5c837956546e90a6a3f147c7cb643b990a0f1327e9a10b1302ead9ac4a",
+      "description": "Especialista UI para juegos 2D/3D: HUD, mando, menús, narrativa y accesibilidad."
+    },
+    {
+      "skill": "ux-information-architecture",
+      "status": "POR_FEATURE",
+      "nota": "Navegación, permisos, menús y búsqueda",
+      "source_path": "skills/ux-information-architecture/SKILL.md",
+      "sha256": "a0060f83385d5a5c6a9a98b45cbeabc13d8d28e35106bbdf51995fdb8a40d11e",
+      "description": "Diseña arquitectura de información, navegación, estado y recorridos con errores."
+    },
+    {
+      "skill": "ux-mobile-experience",
+      "status": "CONDICIONAL",
+      "nota": "Solo UX responsive móvil web, no crear app nativa",
+      "source_path": "skills/ux-mobile-experience/SKILL.md",
+      "sha256": "b4a8b41357783ea9f8ed73ceb80f0c5a50b6d251b7fdb3450b83ea21932cda42",
+      "description": "Especialista UX móvil Expo/React Native: patrones nativos, touch, safe area y accesibilidad."
+    },
+    {
+      "skill": "ux-product-discovery",
+      "status": "POR_FEATURE",
+      "nota": "Personas, journeys, onboarding, necesidades empresariales",
+      "source_path": "skills/ux-product-discovery/SKILL.md",
+      "sha256": "11574aef6002dc813554bf6e8456d68f39b7466e86506f67b11c46786ae4b1b4",
+      "description": "Investiga el problema real y propone dirección UX específica antes de imponer stack o paleta."
+    },
+    {
+      "skill": "ux-web-experience",
+      "status": "POR_FEATURE",
+      "nota": "Flujos de formularios, tablas, dashboard",
+      "source_path": "skills/ux-web-experience/SKILL.md",
+      "sha256": "a96527e440cdee18bee4f207713d2bb9127431f322611a41fd1b98cf1d479254",
+      "description": "Especialista UX web/React: semántica, formularios, navegación, responsive y performance."
+    },
+    {
+      "skill": "vigilio-architecture-guide",
+      "status": "BASE",
+      "nota": "Gobernanza/calidad común sin dependencia cloud",
+      "source_path": "skills/vigilio-architecture-guide/SKILL.md",
+      "sha256": "e8fa885f57513a980c3246e003f46b5c3315d7c6a52113f3f69fec61dec750c9",
+      "description": "Comprende, navega, audita y evoluciona el ecosistema Vigilio (vigilio-docs, vigilio-skills, paquetes npm, perfiles, NestJS, Laravel, DDD, SOLID, Zod, OpenAPI, AWS/EKS/Lambda, CI/CD, observabilidad y modernización existente). Usar al analizar la arquitectura de carpetas, crear o actualizar documentación/skills, seleccionar perfiles, rastrear reglas canónicas, implementar features multistack o preparar cambios seguros sin perder archivos existentes."
+    },
+    {
+      "skill": "vigilio-auto-senior",
+      "status": "BASE",
+      "nota": "Router de skills y evidencia, no ejecución automática asumida",
+      "source_path": "skills/vigilio-auto-senior/SKILL.md",
+      "sha256": "d62ef185707db78181f6e8bf148c5f5b15a5ec30463bba2c85e08637b6ff2e97",
+      "description": "Orquesta automáticamente solicitudes de ingeniería al recibirlas en lenguaje natural (feature, bug, review, refactor, testing, API o seguridad). Inspecciona el repositorio, selecciona y LEE las skills y normas aplicables, pregunta solo bloqueos y termina con verificación y review independiente. Puede invocarse también como /vigilio-skill."
+    },
+    {
+      "skill": "web-mfe-build-feature",
+      "status": "POR_FEATURE",
+      "nota": "Screens, forms, route state, queries",
+      "source_path": "skills/web-mfe-build-feature/SKILL.md",
+      "sha256": "8468455de62fc6f949c600c11b48d8d0f5cd3104e30fc2afd509ad547b4a914a",
+      "description": "Implementa y revisa features frontend productivas en web-mfe con Preact/React compatibility, TypeScript estricto, Vite, Tailwind CSS, TanStack Query, React Hook Form y componentes reutilizables. Usar al crear o modificar pantallas, features, componentes, hooks, rutas, servicios HTTP, formularios, estado cliente o integraciones con el BFF."
+    },
+    {
+      "skill": "web-mfe-contracts",
+      "status": "POR_FEATURE",
+      "nota": "OpenAPI generado, tipado browser-safe, compatibilidad",
+      "source_path": "skills/web-mfe-contracts/SKILL.md",
+      "sha256": "5234136b3f9f20fae9fef63c6bb57845eb849ab7d6f7cdfbe11546c7e78378a9",
+      "description": "Integra contratos HTTP browser-safe resueltos por perfil con Zod, React Hook Form, TanStack Query, TanStack Table, servicios y componentes. Usar al consumir o cambiar DTOs, formularios, queries, mutations, tablas, uploads, autenticacion, errores o compatibilidad OpenAPI entre bus-impl/web-mfe o bus-impl-v2/web-mfe-v2."
+    },
+    {
+      "skill": "web-mfe-quality",
+      "status": "POR_FEATURE",
+      "nota": "Performance, accesibilidad, Biome y calidad web",
+      "source_path": "skills/web-mfe-quality/SKILL.md",
+      "sha256": "b5d59e49c254ba1409498e71b6a6ef6b4f465cccf39b7fe9a11ab91ae85bf8f2",
+      "description": "Revisa y mejora accesibilidad, SEO, Core Web Vitals, rendimiento de render, bundle, imagenes, cache y observabilidad frontend en web-mfe. Usar al modificar UI visible, rutas publicas, metadata, estilos, assets, carga diferida, tablas grandes, canvas, lightweight-charts, OGL/WebGL, telemetria, logging, dashboards o budgets de performance."
+    },
+    {
+      "skill": "web-mfe-realtime",
+      "status": "POR_FEATURE",
+      "nota": "SSE parser, abort, reintentos controlados",
+      "source_path": "skills/web-mfe-realtime/SKILL.md",
+      "sha256": "e7b31b0e148e8a806e84d93ef47c861502f0c24293f122102c1c1ae27f6880eb",
+      "description": "Implementa y revisa WebSocket, Socket.IO client y SSE en web MFE. Usar para conexiones, listeners, reconexión, cache, estados de conexión, accesibilidad y modo degradado."
+    },
+    {
+      "skill": "web-mfe-security-delivery",
+      "status": "POR_FEATURE",
+      "nota": "CSP, cookies, secretos y web release; solo perfil Compose",
+      "source_path": "skills/web-mfe-security-delivery/SKILL.md",
+      "sha256": "f259d3c23dea1173894f759f5ab471d87ebc26e0f71bd18eaa5a8642b5e10316",
+      "description": "Endurece seguridad browser, configuracion, supply chain, CI/CD y delivery por perfil de web-mfe/web-mfe-v2. Usar al cambiar autenticacion, tokens, runtime env, uploads, CSP/headers, dependencias, GitHub Actions, previews, SBOM, provenance, OCI, ECR, Kubernetes, Helm, GitOps, Terraform, CDK/CDN cuando exista, dominios o release/rollback."
+    },
+    {
+      "skill": "web-mfe-technologies",
+      "status": "POR_FEATURE",
+      "nota": "Preact, Vite, Tailwind, browser stack",
+      "source_path": "skills/web-mfe-technologies/SKILL.md",
+      "sha256": "72b7abc234df9539ea0a072358d4d5eb8568373763e462dbf932fd88e0afde1b",
+      "description": "Verifica APIs y arquitectura frontend 2026 para Preact, Vite, Tailwind CSS 4, TanStack Query/Table, React Hook Form, Zod, Wouter, Signals/Zustand, lightweight-charts 5.2, OGL 1.0.11, Vitest, Playwright y delivery por perfil. Usar al diseñar o revisar web-mfe/web-mfe-v2 sin cruzar contratos ni runtimes."
+    },
+    {
+      "skill": "web-mfe-testing",
+      "status": "POR_FEATURE",
+      "nota": "Playwright/Vitest de login, forms y rutas",
+      "source_path": "skills/web-mfe-testing/SKILL.md",
+      "sha256": "ceb99dcc5a6b63b85819ebc32307a5c6d0603aaf7eea805753dcea03661b216e",
+      "description": "Disena, implementa y revisa pruebas frontend en web-mfe con Vitest, Testing Library Preact, MSW y Playwright. Usar al agregar features, corregir bugs, cambiar formularios, contratos, queries, mutations, auth, uploads, accesibilidad, canvas, lightweight-charts, OGL/WebGL, visuales, rutas, observabilidad o quality gates."
+    }
+  ]
+}
